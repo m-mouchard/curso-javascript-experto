@@ -7,8 +7,6 @@ function Personaje(nombre){
     this.sp = 100;
 
     this.curar = function (jugadorObjeto){
-        
-
         if(this.vida>0){
             if (this.sp >=40){
                 //Esta es la forma abreviada de escribir jugadorObjeto.vida = jugadorObjeto.vida + 10;
@@ -24,7 +22,6 @@ function Personaje(nombre){
     }
 
     this.atacar = function(jugadorObjeto){
-        
         if(this.vida>0){
             if(jugadorObjeto.vida>0){
                 this.vida -= 10;
@@ -42,7 +39,6 @@ function Personaje(nombre){
         }else{
             console.error(this.nombre+" no puede atacar porque está muerto");
         }
-
     }
 
 }
