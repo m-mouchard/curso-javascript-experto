@@ -1,16 +1,23 @@
 //El Señor de los Anillos
 
-function Personaje(nombre){
+let configVida = window.prompt("Configura los puntos de vida con los que arrancan los personajes");
+
+alert("La vida introducida es de " + configVida);
+
+//Hay que convertir el valor introducido ya que por defecto es string, a número.
+let numconfigVida = Number(configVida);
+
+function Personaje(nombre, numconfigVida){
 
     this.nombre = nombre;
-    this.vida = 100;
+    this.vida = numconfigVida;
     this.sp = 100;
 
     this.curar = function (jugadorObjeto){
         if(this.vida>0){
             if (this.sp >=40){
                 //Esta es la forma abreviada de escribir jugadorObjeto.vida = jugadorObjeto.vida + 10;
-                jugadorObjeto.vida +=20; 
+                jugadorObjeto.vida = jugadorObjeto.vida + 20;
                 this.sp -=40;
                 console.info(this.nombre+" ha dado +20 puntos de vida a "+ jugadorObjeto.nombre);
             }else{
@@ -43,8 +50,8 @@ function Personaje(nombre){
 
 }
 
-var personaje1 = new Personaje("Gandalf");
-var personaje2 = new Personaje("Legolas");
+var personaje1 = new Personaje("Gandalf",numconfigVida);
+var personaje2 = new Personaje("Legolas",numconfigVida);
 
 console.log(personaje1);
 console.log(personaje2);
