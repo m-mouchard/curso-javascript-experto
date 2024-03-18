@@ -12,8 +12,10 @@ function clickBton1(){
 
     let txtaltura = document.getElementById("inputaltura");
     altura =txtaltura.value;
-    //alturafloat = parseFloat(altura);
+    //alturafloat = parseFloat(altura); Esta función por si quisieramos convertir en numero 
+    
 
+    debugger; //Esta función depurador es para que el código se ejecute hasta aquí. 
     let imc = peso / (altura * altura);
     
     alert("Su IMC es "+ Math.round(imc));
