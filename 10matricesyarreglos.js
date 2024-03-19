@@ -1,4 +1,3 @@
-
 let nombres = ["Manuel","Ana","Pedro","Eduardo","Rubén"];
 
 //alert(nombres[0]); //El índice cero como en c++ es el primer elemento del vector
@@ -22,22 +21,27 @@ function iniciar(){
 
     let boton = document.getElementById("btnAgregar");
     boton.addEventListener("click",logicaBtn);
-    //boton.addEventListener("hover",);
+    
 }
 
 
 function logicaBtn(){
+
+    let nuevaTarea = [];
+    let variablesLocal = [];
     
     nuevaTarea = document.getElementById("newTarea").value;
     tarea.push(nuevaTarea);
     console.log(tarea);
 
+    variablesLocal.push = localStorage.setItem("Lista Tareas", nuevaTarea);
+
     //aquí llamamos a la función mostrarTareas para que las vaya escribiendo en la web, en el párrafor con el id = "lista"
-    mostrarTareas();
+    mostrarTareas(variablesLocal);
 
 }
 
-function mostrarTareas(){
+function mostrarTareas(variablesLocal){
 
     var listado = document.getElementById("lista") //Cogemos el párrafo con el id = "lista"
 
