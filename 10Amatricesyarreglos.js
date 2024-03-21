@@ -22,13 +22,16 @@ function clickBtonAgregar(){
         listaTareas = JSON.parse(localStorage.tareasStorage);
     }
 
+    //Otra manera de utilizar el local storage con las funciones "getItem" y "setItem" (linea 33)
+    if (localStorage.getItem("Lista de tareas") != undefined) {
+        listaTareas = JSON.parse(localStorage.getItem("Lista de tareas"));
+    }
     listaTareas.push(txt);
-    //localStorage.setItem("Lista de tareas", JSON.stringify(listaTareas));
     //Como listaTareas es un objeto y no podemos guardar estos en el local storage,
     //lo convertimos a string con la función JSON.stringy
-    //tareasStorage = localStorage.setItem("Lista de tareas",JSON.stringify(listaTareas));
     localStorage.tareasStorage = JSON.stringify(listaTareas);
-    //console.log(JSON.parse(localStorage.tareasStorage));
+    listaDeTareasLocalStorage = localStorage.setItem("Lista de tareas", JSON.stringify(listaTareas));
+    
     mostrarTareas();
 }
 
@@ -47,13 +50,10 @@ function mostrarTareas(){
         htmlString = "No hay tareas almacenadas";
     }
     
-    //localStorage.setItem("Lista Tareas post bucle",JSON.stringify(htmlString));
-    
-    //let htmlFinalParse = JSON.stringify(htmlString);
-    //htmlFinalParse = localStorage.getItem("Lista de tareas");
     para.innerHTML = htmlString;
 }
 
 function clickBotonBorrarListaTareas(){
     localStorage.removeItem("tareasStorage");
+    localStorage.removeItem("Lista de tareas");
 }
