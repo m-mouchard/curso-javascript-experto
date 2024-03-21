@@ -26,7 +26,13 @@ function clickBtonAgregar(){
     if (localStorage.getItem("Lista de tareas") != undefined) {
         listaTareas = JSON.parse(localStorage.getItem("Lista de tareas"));
     }
-    listaTareas.push(txt);
+    
+    //Bucle if para evitar que se guarde una tarea vacía
+    if(txt == ""){
+        alert("Debes introducir texto para poder guardar una tarea");
+    } else{
+        listaTareas.push(txt);
+    }
     //Como listaTareas es un objeto y no podemos guardar estos en el local storage,
     //lo convertimos a string con la función JSON.stringy
     localStorage.tareasStorage = JSON.stringify(listaTareas);
