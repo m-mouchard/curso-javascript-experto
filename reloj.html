@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <link href="plantilla.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="contenedor">
+        <p class="reloj"></p>
+    </div>
+
+    <script>
+        setInterval(()=>{
+            let reloj = document.getElementsByClassName("reloj")[0];    
+            let tiempoActual = new Date();
+            let horaActual = tiempoActual.getHours();
+            if(horaActual<10){
+                horaActual = `0${horaActual}`;
+            }
+            let minActual = tiempoActual.getMinutes();
+            if(minActual<10){
+                minActual = `0${minActual}`;
+            }
+            let segActual = tiempoActual.getSeconds();
+            if(segActual<10){
+                segActual = `0${segActual}`;
+            }
+            //reloj.innerHTML = horaActual+":"+minActual+":"+segActual;
+            //Otra forma de meter strings con comilla simple hacia izquierda "`"
+            //más el símbolo del dollar para llamar a una variable y meterla entre llaves "{}"
+            reloj.innerHTML = `${horaActual}:${minActual}:${segActual}`;
+            if (reloj.innerHTML == `17:44:25`) {
+                alert("KILLO K PASA");
+            };
+        },1000);
+
+    </script>
+</body>
+</html>
